@@ -1,0 +1,159 @@
+[
+    {
+        "id": "31526861c4f68849",
+        "type": "tab",
+        "label": "firmware update",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1a9af0a5e85ed487",
+        "type": "ncd-gateway-node",
+        "z": "31526861c4f68849",
+        "name": "",
+        "connection": "3a158777559a1790",
+        "unknown_devices": false,
+        "outputs": 1,
+        "x": 690,
+        "y": 420,
+        "wires": [
+            [
+                "66e022b156e099e8"
+            ]
+        ]
+    },
+    {
+        "id": "ccac16f652fcd9da",
+        "type": "debug",
+        "z": "31526861c4f68849",
+        "name": "debug 159",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a53841fdcb3690dc",
+        "type": "inject",
+        "z": "31526861c4f68849",
+        "name": "add_firmware_file from github",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "add_firmware_file",
+        "x": 200,
+        "y": 280,
+        "wires": [
+            [
+                "58e5d62be3902e88"
+            ]
+        ]
+    },
+    {
+        "id": "58e5d62be3902e88",
+        "type": "http request",
+        "z": "31526861c4f68849",
+        "name": "Firmware Link",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "https://github.com/ncd-io/Enterprise-Sensor-Firmware/raw/refs/heads/main/Firmware%20Files/21%20-%20Wireless%20Differential%20Bi%20directional%20Pressure%20Sensor/V14_PR55-59DP_008DB.ncd",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "1a9af0a5e85ed487",
+                "ccac16f652fcd9da"
+            ]
+        ]
+    },
+    {
+        "id": "3ba1c3fe8672959a",
+        "type": "inject",
+        "z": "31526861c4f68849",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ota_firmware_update_single",
+        "payload": "00:13:a2:00:41:8e:a5:d6",
+        "payloadType": "str",
+        "x": 270,
+        "y": 460,
+        "wires": [
+            [
+                "1a9af0a5e85ed487"
+            ]
+        ]
+    },
+    {
+        "id": "66e022b156e099e8",
+        "type": "debug",
+        "z": "31526861c4f68849",
+        "name": "debug 161",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "5dfe9e39c100500a",
+        "type": "comment",
+        "z": "31526861c4f68849",
+        "name": "add raw firmware link from github ",
+        "info": "https://github.com/ncd-io/Enterprise-Sensor-Firmware/tree/main/Firmware%20Files",
+        "x": 450,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "3a158777559a1790",
+        "type": "ncd-gateway-config",
+        "name": "",
+        "comm_type": "serial",
+        "ip_address": "",
+        "tcp_port": "2101",
+        "tcp_inactive_timeout_active": false,
+        "tcp_inactive_timeout": "",
+        "port": "/dev/ttymxc2",
+        "baudRate": "115200",
+        "pan_id": "7FFF",
+        "rssi": true
+    }
+]
