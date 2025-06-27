@@ -1,3 +1,3 @@
 first production version 
 
-request data from two probes 
+v7 - request data from two probes 
