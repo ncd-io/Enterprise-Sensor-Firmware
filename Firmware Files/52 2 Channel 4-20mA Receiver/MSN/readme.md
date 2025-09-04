@@ -4,3 +4,6 @@ default setting
 Interval -- 1200 sec 
 Boot time -- 12sec 
 auto chekc -- disable 
+
+
+V19 and V20 are identical
