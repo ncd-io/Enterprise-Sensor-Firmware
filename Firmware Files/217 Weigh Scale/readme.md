@@ -6,3 +6,6 @@ V7 -- default tare and calib vlaue was added
 
 
 V8 -- default calib vlaue chnaged to 33
+
+
+V9 -- filters added to remove occasion random data 
