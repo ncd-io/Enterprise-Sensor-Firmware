@@ -5,3 +5,5 @@ V9 -- added new algo for RPM
 Added Hanning windowing in vibration calculation.
 
 V11 -- added master command and INI message 
+
+V17 -- alert threshold increased
